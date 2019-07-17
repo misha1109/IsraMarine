@@ -2,32 +2,227 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.btnColor {
+  background: #015871;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logo {
+  background-image: url("Logo2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 10vh;
 }
 
-.App-link {
-  color: #61dafb;
+.ocean {
+  z-index: -2;
+  height: 5%;
+  width:100%;
+  position:fixed;
+  bottom:0vh;
+  left:0;
+  background: #015871;
 }
 
-@keyframes App-logo-spin {
-  from {
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 6s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 6s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+}
+
+
+/* code for the sun  */
+#sun{
+  z-index: -1;
+
+  position: fixed;
+  top: 25%;
+  left: 20%;
+  margin: -150px 0 0 -150px;
+  width: 300px;
+  height: 300px;
+}
+#sun *, #sun *:before, #sun *:after{
+  position: absolute;
+}
+
+/* code for the rings */
+#rings{
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+}
+#rings div:before, #rings div:after{
+  content: "";
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: inherit;
+  width: inherit;
+  background: inherit;
+}
+#rings div:before{
+  transform: rotate(60deg);
+}
+#rings div:after{
+  transform: rotate(-60deg);
+}
+#rings div:nth-child(even){
+  animation: rotateR 12s infinite linear;
+}
+#rings div:nth-child(odd){
+  animation: rotateL 12s infinite linear;
+  transform: rotate(15deg);
+}
+#rings div:nth-child(1){
+  animation-duration: 45s;
+  backgrond: rgba(255, 230, 84, 0.5);
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+}
+#rings div:nth-child(2){
+  animation-duration: 49s;
+  background: rgba(255, 185, 6, 0.5);
+  width: 190px;
+  height: 190px;
+  margin: -95px 0 0 -95px;
+}
+#rings div:nth-child(3){
+  animation-duration: 56s;
+  background: rgba(255, 130, 5, 0.5);
+  width: 180px;
+  height: 180px;
+  margin: -90px 0 0 -90px;
+}
+#ringsv idiv:nth-child(4){
+  animation-duration: 93s;
+  background: rgba(255, 90, 0, 0.5);
+  width: 170px;
+  height: 170px;
+  margin: -85px 0 0 -85px;
+}
+
+/* animations */
+@-webkit-keyframes rotateR{
+  from{
+    -webkit-transform: rotate(0deg);
+  }
+  to{
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotateR{
+  from{
+    -moz-transform: rotate(0deg);
+  }
+  to{
+    -moz-transform: rotate(360deg);
+  }
+}
+@-ms-keyframes rotateR{
+  from{
+    -ms-transform: rotate(0deg);
+  }
+  to{
+    -ms-transform: rotate(360deg);
+  }
+}
+@-o-keygrames rotateR{
+  from{
+    -o-transform: rotate(0deg);
+  }
+  to{
+    -o-transform: rotate(360deg);
+  }
+}
+@keyframes rotateR{
+  from{
     transform: rotate(0deg);
   }
-  to {
+  to{
     transform: rotate(360deg);
   }
 }
+@-webkit-keyframes rotateL{
+  from{
+    -webkit-transform: rotate(360deg);
+  }
+  to{
+    -webkit-transform: rotate(0deg);
+  }
+}
+@-moz-keyframes rotateL{
+  from{
+    -moz-transform: rotate(360deg);
+  }
+  to{
+    -webkit-transform: rotate(0deg);
+  }
+}
+@-ms-keyframes rotateL{
+  from{
+    -ms-transform: rotate(360deg);
+  }
+  to{
+    -ms-transform: rotate(0deg);
+  }
+}
+@-o-keyframes rotateL{
+  from{
+    -o-transform: rotate(360deg);
+  }
+  to{
+    -o-transform: rotate(0deg)
+  }
+}
+@keyframes rotateL{
+  from{
+    transform: rotate(360deg);
+  }
+  to{
+    transform: rotate(0deg);
+  }
+}
+
+
+
+
+
+
+/*@keyframes App-logo-spin {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/
