@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import Forecast from '../../../components/Forecast/Forecast'
+import TideChart from '../../../components/TideChart/TideChart'
 
 import './Navbar.css';
 
@@ -21,15 +22,16 @@ export default class Navbar extends Component {
                         </button>
                         <button className="btn mx-1 btn-info my-2 my-sm-0">
                             <NavLink
-                                to="/"
+                                to="/tidechart"
                                 exact
                                 style={{ color:'white' }}
-                            >Something</NavLink>
+                            >Tide Chart</NavLink>
                         </button>
                         <button className="btn mx-1 btn-info my-2 my-sm-0">Something</button>
                     </div>
                 </nav>
                 <Route path="/forecast" component={Forecast}/>
+                <Route path="/tidechart" component={TideChart}/>
             </div>
         )
     }

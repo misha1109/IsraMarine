@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
-import reqWeather from '../../marinWeatherAPI/tempRequestsHandler.js'
+import { reqWeather } from '../../marinWeatherAPI/tempRequestsHandler.js'
 import ForecastTable from './ForecastTable/ForecastTable'
 import './Forecast.css'
 
@@ -16,7 +16,7 @@ export default class Forecast extends Component{
 
     componentDidUpdate(prevState) {
         if (this.state.marineData !== null) {
-            window.scrollTo(0,200)
+            window.scrollTo(0,300)
         }
     }
 
@@ -30,6 +30,7 @@ export default class Forecast extends Component{
             coordClicked : [coordinates[1],coordinates[0]]
         })
         this.addMarker(coord)
+        console.log(this.state.coordClicked)
     }
 
     getWeather =async () => {
@@ -91,7 +92,6 @@ export default class Forecast extends Component{
     }
 
     dateNavClicked = (value) =>{
-        console.log(this.state.marineData[this.state.curDate].hourly[this.state.curTime])
 
         if(value == '-3') {
             if(this.state.curTime != 0)
@@ -123,7 +123,6 @@ export default class Forecast extends Component{
 
                     {this.state.marineData?
                         <ForecastTable
-                            id="forecastT"
                             forecast = { this.state.marineData[this.state.curDate].hourly[this.state.curTime] }
                             coordinates = {this.state.coordClicked}
                             date = {this.state.marineData[this.state.curDate].date}

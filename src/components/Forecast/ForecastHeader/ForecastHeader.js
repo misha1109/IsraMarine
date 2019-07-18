@@ -5,8 +5,9 @@ export default function ForecastHeader(props){
 
     return (
         <div className="container pa-0 ma-0" style={{textAlign: 'center'}}>
-            <div className="row">
+            <div className="row ">
                 <h6 className="col-12" style={{fontSize:'small'}}>{props.headline}</h6>
+                <div className="col-12">{props.children}</div>
                 <h6 className={ line } style={{fontSize:'small'}}>{props.cell1}</h6>
                 <h6 className={ line } style={{fontSize:'small'}}>{props.cell2}</h6>
             </div>
