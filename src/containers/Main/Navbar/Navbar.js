@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import Forecast from '../../../components/Forecast/Forecast'
 import TideChart from '../../../components/TideChart/TideChart'
+import PersonalMain from '../../../components/Personal/PersonalMain/PersonalMain'
 
 import './Navbar.css';
 
@@ -27,11 +28,18 @@ export default class Navbar extends Component {
                                 style={{ color:'white' }}
                             >Tide Chart</NavLink>
                         </button>
-                        <button className="btn mx-1 btn-info my-2 my-sm-0">Something</button>
+                        <button className="btn mx-1 btn-info my-2 my-sm-0">
+                            <NavLink
+                                to="/personal"
+                                exact
+                                style={{ color:'white' }}
+                            >Personal</NavLink>
+                            </button>
                     </div>
                 </nav>
                 <Route path="/forecast" component={Forecast}/>
                 <Route path="/tidechart" component={TideChart}/>
+                <Route path="/personal" component={PersonalMain}/>
             </div>
         )
     }

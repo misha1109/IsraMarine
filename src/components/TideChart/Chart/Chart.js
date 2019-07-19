@@ -19,9 +19,6 @@ export default class Chart extends Component {
                 y : parseFloat(el.tideHeight_mt)
             })
         })
-
-        console.log(heightData)
-
         const options = {
             animationEnabled: true,
             title: {

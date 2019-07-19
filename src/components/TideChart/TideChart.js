@@ -2,6 +2,7 @@ import React , {Component} from 'react'
 import Chart from './Chart/Chart'
 import TideNav from './TideNavigation/TideNavigation'
 import { reqWeather} from "../../marinWeatherAPI/tempRequestsHandler";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner"
 
 export default class TideChart extends Component {
      state = {
@@ -39,7 +40,6 @@ export default class TideChart extends Component {
                          const dates = res.data.weather.map( el => {
                              return el.date
                          })
-                         console.log(dates)
                          this.setState({
                              date : dates,
                              loaded : tempLoaded
@@ -53,7 +53,6 @@ export default class TideChart extends Component {
     }
 
     changeDay = (val) => {
-         console.log(123)
          let newDay = this.state.day + val
          this.setState({
              day : newDay
@@ -63,6 +62,11 @@ export default class TideChart extends Component {
     render(){
         return (
             <div>
+                { !this.state.loaded ?
+                    <div className="pt-5">
+                        <LoadingSpinner />
+                    </div>
+                    :null}
                 <div>
                     { this.state.loaded ?
                         <TideNav

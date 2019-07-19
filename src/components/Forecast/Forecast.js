@@ -30,7 +30,6 @@ export default class Forecast extends Component{
             coordClicked : [coordinates[1],coordinates[0]]
         })
         this.addMarker(coord)
-        console.log(this.state.coordClicked)
     }
 
     getWeather =async () => {
@@ -54,7 +53,6 @@ export default class Forecast extends Component{
             await this.setCoordinates(e)
             await this.getWeather()
 
-            console.log(this.state.marineData)
         });
 
     }
