@@ -1,0 +1,13 @@
+.mapboxTide{
+    height: 35vh;
+    border-radius: 10px;
+}
+
+.markerTide {
+    background-image: url('https://cdn0.iconfinder.com/data/icons/map-markers-2-1/512/xxx020-512.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}

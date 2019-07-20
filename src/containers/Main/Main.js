@@ -3,6 +3,7 @@ import BackSeaSun from './Background/Background'
 import Navbar from './Navbar/Navbar'
 import { Route } from 'react-router-dom';
 import './Main.css'
+import APIalert from "../../components/APIkeyProblem/APIkeyProblem";
 
 
 export default class Main extends Component{
@@ -11,6 +12,7 @@ export default class Main extends Component{
             <div className="Main">
                 <Route path="/" component={Navbar}/>
                 <Route path="/" component={BackSeaSun}/>
+                <Route path="/apiKeyErr" component={APIalert}/>
             </div>
         )
     }

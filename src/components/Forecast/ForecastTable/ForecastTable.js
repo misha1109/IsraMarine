@@ -94,7 +94,7 @@ export default class ForecastTable extends Component {
                             ></ForecastTableAdv>
                         :null}
                     <button onClick={ () => this.clickAdvButton()}
-                            className="btn mx-1 btn-info my-2 my-sm-0">
+                            className="btn btn-info mb-3">
                             {this.state.AdvText}
                     </button>
                 </div>

@@ -6,7 +6,7 @@ export default class PersoanlMain extends Component {
     render(){
         return (
             <div className="personalMain">
-                <div style={{backgroundColor:"#F0F8FF"}} className="container card ma-0 pa-0 ">
+                <div style={{backgroundColor:"#F0F8FF",opacity:"0.9"}} className="container card ma-0 pa-0 ">
                     <div className="row">
                         <div className="col-12">
                             <h5>Sign in</h5>
@@ -27,7 +27,7 @@ export default class PersoanlMain extends Component {
                         </div>
                         <div className="col-12">
                             <button className="btn btn-primary mb-2">Submit</button>
-                            <br/>
+                            <h6>Or</h6>
                             <button className="btn btn-outline-warning mb-2">Create an account</button>
                         </div>
                     </div>
