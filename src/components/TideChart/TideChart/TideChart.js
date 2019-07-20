@@ -6,7 +6,6 @@ import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner"
 import {mapInit, translateCoord} from "../../../mapbox/mapboxInit";
 import mapboxgl from "mapbox-gl";
 import { possitionsIsrael } from './possitionsIsrael.js'
-import APIalert from '../../APIkeyProblem/APIkeyProblem'
 import { Redirect } from 'react-router-dom'
 
 import './TideChart.css'
@@ -66,8 +65,6 @@ export default class TideChart extends Component {
              this.setState({
                  apiErr : true
              })
-
-             console.log('got you')
          }
 
          else{

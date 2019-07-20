@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08af6f7a-7502-4f93-8317-5b3bb5cf8a5e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/APIkeyProblem/APIkeyProblem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TideChart/TideChart/possitionsIsrael.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TideChart/TideGlobal/TideGlobal.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TideChart/TideGlobal/TideGlobal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TideChart/TideMain/TideMain.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mapbox/mapboxInit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forecast/Forecast.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forecast/Forecast.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forecast/ForecastTable/ForecastTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forecast/ForecastTable/ForecastTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Personal/PersonalMain/PersonalMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Personal/PersonalMain/PersonalMain.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TideChart/TIdeIsrael/TideChart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Main/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Main/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Main/Navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/marinWeatherAPI/tempRequestsHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/marinWeatherAPI/tempRequestsHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TideChart/TideChart/TideChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TideChart/TideChart/TideChart.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,13 +16,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/TideChart/TideChart/TideChart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="67" column="15" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+            <state relative-caret-position="300">
+              <caret line="163" selection-start-line="163" selection-end-line="168" selection-end-column="23" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Forecast/Forecast.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,15 +107,6 @@
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/TideChart/Chart/Chart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1011">
-              <caret line="41" column="70" selection-start-line="41" selection-start-column="70" selection-end-line="41" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -204,13 +195,13 @@
         <option value="$PROJECT_DIR$/src/components/TideChart/TideMain/TideMain.css" />
         <option value="$PROJECT_DIR$/src/components/TideChart/TideGlobal/TideGlobal.css" />
         <option value="$PROJECT_DIR$/src/components/TideChart/TideChart/TideChart.css" />
-        <option value="$PROJECT_DIR$/src/components/Forecast/Forecast.js" />
         <option value="$PROJECT_DIR$/src/containers/Main/Navbar/Navbar.js" />
         <option value="$PROJECT_DIR$/src/marinWeatherAPI/tempRequestsHandler.js" />
         <option value="$PROJECT_DIR$/src/containers/Main/Main.js" />
         <option value="$PROJECT_DIR$/src/components/TideChart/TideMain/TideMain.js" />
         <option value="$PROJECT_DIR$/src/components/APIkeyProblem/APIkeyProblem.js" />
         <option value="$PROJECT_DIR$/src/components/TideChart/TideChart/TideChart.js" />
+        <option value="$PROJECT_DIR$/src/components/Forecast/Forecast.js" />
       </list>
     </option>
   </component>
@@ -250,6 +241,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="APIkeyProblem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="isra-marine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="isra-marine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Forecast" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="isra-marine" type="b2602c69:ProjectViewProjectNode" />
@@ -341,12 +339,12 @@
       <workItem from="1563280740773" duration="32282000" />
       <workItem from="1563355124714" duration="42275000" />
       <workItem from="1563453533528" duration="31884000" />
-      <workItem from="1563531987186" duration="39878000" />
+      <workItem from="1563531987186" duration="40625000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146319000" />
+    <option name="totallyTimeSpent" value="147066000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -671,16 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Forecast/Forecast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/TideChart/Chart/Chart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1011">
@@ -754,10 +742,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/TideChart/TideChart/TideChart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="67" column="15" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+        <state relative-caret-position="300">
+          <caret line="163" selection-start-line="163" selection-end-line="168" selection-end-column="23" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Forecast/Forecast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

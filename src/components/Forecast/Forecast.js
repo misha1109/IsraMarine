@@ -3,6 +3,7 @@ import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
 import { reqWeather } from '../../marinWeatherAPI/tempRequestsHandler.js'
 import ForecastTable from './ForecastTable/ForecastTable'
 import './Forecast.css'
+import { Redirect } from 'react-router-dom'
 import { mapInit, translateCoord } from '../../mapbox/mapboxInit'
 
 export default class Forecast extends Component{
@@ -38,6 +39,14 @@ export default class Forecast extends Component{
         if(data.data){
             this.setState({marineData : data.data.weather})
         }
+        else{
+            if( data == 429 ){
+                this.setState({
+                    apiErr : true
+                })
+            }
+        }
+
     }
 
 
@@ -116,6 +125,12 @@ export default class Forecast extends Component{
     render(){
         return (
             <div>
+                { this.state.apiErr ?
+                    <Redirect
+                        to='/apiKeyErr'
+                    >
+                    </Redirect>
+                    : null}
                 <div className="container Forecast">
                     {!this.state.coordClicked?
                         <h6>Click on the map to choose location</h6>
