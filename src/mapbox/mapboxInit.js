@@ -1,7 +1,6 @@
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
 
 export function mapInit (currPosition, id, zoom){
-    console.log(zoom)
     let coords = null
     if(currPosition){
         coords = [currPosition.coords.longitude,currPosition.coords.latitude]

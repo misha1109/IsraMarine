@@ -23,7 +23,15 @@ export default class Forecast extends Component{
     }
 
     componentDidMount() {
-        navigator.geolocation.getCurrentPosition(res => this.initMapbox(res))
+        // navigator.geolocation.watchPosition(function(position) {
+        //         console.log("i'm tracking you!");
+        //     },
+        //     function(error) {
+        //         if (error.code == error.PERMISSION_DENIED)
+        //             console.log("you denied me :-(");
+        //     });
+        navigator.geolocation.getCurrentPosition((res) => this.initMapbox(res),
+            (rej) => this.initMapbox({ coords : { longitude : 0 , latitude : 0} }))
     }
 
     setCoordinates =(coord) => {
@@ -52,7 +60,12 @@ export default class Forecast extends Component{
 
     initMapbox =async (currPosition) => {
 
-        const map = await mapInit(currPosition,'mapForecast')
+        let zoom = null
+        if(currPosition.coords.longitude == 0 && currPosition.coords.latitude == 0){
+            zoom = 3
+        }
+
+        const map = await mapInit(currPosition,'mapForecast',zoom)
         map.on('click',  async (e) => {
             await this.setCoordinates(e)
             await this.getWeather()

@@ -6,7 +6,7 @@ export default function apiAlert(){
         <NavLink
             to="/"
         >
-            <div className="container pa-0 ma-0">
+            <div style={{opacity :'0.8'}} className="container pa-0 ma-0">
                 <div className="alert alert-danger" role="alert">
                     <h4 className="alert-heading">Sorry!</h4>
                     <h6>The API limit was reached</h6>

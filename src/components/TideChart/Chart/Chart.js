@@ -40,7 +40,7 @@ export default class Chart extends Component {
         return (
             <div>
                 <div className="card border border-dark pa-0 ma-0 mt-4"
-                    style={{height:"30vh"}}
+                    style={{height:"30vh", opacity : '0.9'}}
                 >
                     <CanvasJSChart options = {options}
                     />

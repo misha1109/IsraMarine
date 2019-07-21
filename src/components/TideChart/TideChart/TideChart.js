@@ -197,18 +197,21 @@ export default class TideChart extends Component {
                         </div>
                     :null}
                 </div>
-                { this.state.loaded ?
-                    this.state.loaded.map((el,i) => {
-                        return (
-                            <Chart
-                                key = { el.name + i }
-                                name = { el.name }
-                                tides = { el.tides[this.state.day] }
-                            >
-                            </Chart>
-                        )
-                    })
-                : null }
+                <div className="mb-3">
+                    { this.state.loaded ?
+                        this.state.loaded.map((el,i) => {
+                            return (
+                                <Chart
+                                    key = { el.name + i }
+                                    name = { el.name }
+                                    tides = { el.tides[this.state.day] }
+                                >
+                                </Chart>
+                            )
+                        })
+                        : null }
+                </div>
+
             </div>
         )
     }

@@ -47,7 +47,7 @@ export default class ForecastTable extends Component {
 
     render(){
         return (
-            <div className="card mb-3" style={{ borderRadius : "15px" }}>
+            <div className="card mb-3" style={{ borderRadius : "15px", opacity : '0.8' }}>
                 <div className="container">
                     <ForecastDateNav
                         click = { this.props.clickNav }
