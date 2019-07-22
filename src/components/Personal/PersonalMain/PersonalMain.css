@@ -1,3 +1,42 @@
 .personalMain{
-    text-align: center;
+    animation: personalMainTrans 0.35s ease-in-out 0s forwards;
+}
+
+@keyframes personalMainTrans {
+    0%{
+        transform: scale(0);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+.personalMainSecond{
+    animation: personalMainSecondTrans 0.4s ease-in-out 0s forwards;
+}
+
+
+.personalNew{
+    animation: personalNewTrans 0.4s ease-in-out 0s forwards;
+}
+
+@keyframes personalMainSecondTrans {
+    0%{
+        transform: rotateY(180deg);
+    }
+
+    100%{
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes personalNewTrans {
+    0%{
+        transform: rotateY(180deg);
+    }
+
+    100%{
+        transform: rotateY(0deg);
+    }
 }

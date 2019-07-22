@@ -1,37 +1,53 @@
 import React , { Component } from 'react'
+import UserAccess from '../UserAccess/UserAccess'
+
 import './PersonalMain.css'
 
 export default class PersoanlMain extends Component {
 
+    state = {
+        testNew : true,
+        firstMount : true,
+        email : '',
+        pass : '',
+        passConf : ''
+    }
+
+    changeUserType = () => {
+        this.setState({ testNew : !this.state.testNew, firstMount : false })
+    }
+
+
     render(){
         return (
-            <div className="personalMain">
-                <div style={{backgroundColor:"#F0F8FF",opacity:"0.9"}} className="container card ma-0 pa-0 ">
-                    <div className="row">
+            <div>
+                <h4 className="card" style={{color:'red'}}>User data base - coming soon</h4>
+                { this.state.testNew ?
+                    <UserAccess
+                        className={ this.state.firstMount ?  "personalMain" : "personalMainSecond" }
+                        emailInputHandler = { (event) => { this.setState({ email : event.target.value } ) } }
+                        passInputHandler = { (event) => { this.setState({ pass : event.target.value } ) } }
+                    >
                         <div className="col-12">
-                            <h5>Sign in</h5>
-                        </div>
-                        <div className="col-12">
-                            <form >
-                                <div className="form-group">
-                                    <label htmlFor="exampleInputEmail1">Email address</label>
-                                    <input type="email" className="form-control"
-                                           aria-describedby="emailHelp" placeholder="Enter email"/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="exampleInputPassword1">Password</label>
-                                    <input type="password" className="form-control"
-                                           placeholder="Password"/>
-                                </div>
-                            </form>
-                        </div>
-                        <div className="col-12">
-                            <button className="btn btn-primary mb-2">Submit</button>
+                            <button onClick={ () => console.log(this.state.email, this.state.pass)} className="btn btn-primary mb-2">Submit</button>
                             <h6>Or</h6>
-                            <button className="btn btn-outline-warning mb-2">Create an account</button>
+                            <button onClick={ this.changeUserType } className="btn btn-outline-warning mb-2">Create an account</button>
                         </div>
-                    </div>
-                </div>
+                    </UserAccess>
+                :
+                    <UserAccess
+                        emailInputHandler = { (event) => { this.setState({ email : event.target.value } ) } }
+                        passInputHandler = { (event) => { this.setState({ pass : event.target.value } ) } }
+                        pass2InputHandler = { (event) => { this.setState({ pass2 : event.target.value } ) } }
+                        className="personalNew"
+                        new={true}
+                        click = { this.changeUserType }
+                    >
+                        <div className="col-12">
+                            <button onClick={ () => console.log(this.state.email, this.state.pass, this.state.pass2)}  className="btn btn-warning mb-2">Confirm</button>
+                        </div>
+                    </UserAccess>
+                }
             </div>
         )
     }
