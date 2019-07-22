@@ -20,7 +20,7 @@ export default class ForecastTable extends Component {
 
     componentDidUpdate(prevState) {
         if (this.state.showAdv !== prevState.showAdv) {
-            window.scrollTo(0,600)
+            window.scrollTo(0,document.getElementById('advButton').offsetTop)
         }
     }
 
@@ -47,7 +47,7 @@ export default class ForecastTable extends Component {
 
     render(){
         return (
-            <div className="card mb-3" style={{ borderRadius : "15px", opacity : '0.8' }}>
+            <div className="foreCastTable card mb-3" style={{ borderRadius : "15px", opacity : '0.9' }}>
                 <div className="container">
                     <ForecastDateNav
                         click = { this.props.clickNav }
@@ -92,8 +92,9 @@ export default class ForecastTable extends Component {
                             <ForecastTableAdv
                                 forecast = {this.props.forecast}
                             ></ForecastTableAdv>
-                        :null}
-                    <button onClick={ () => this.clickAdvButton()}
+                        :null
+                    }
+                    <button id="advButton" onClick={ () => this.clickAdvButton()}
                             className="btn btn-info mb-3">
                             {this.state.AdvText}
                     </button>

@@ -6,3 +6,19 @@ h6{
     font-size:small;
 
 }
+
+.foreCastTable{
+    animation: foreCastTableAnime 0.4s ease-in-out forwards 0s;
+}
+
+@keyframes foreCastTableAnime {
+    0%{
+        opacity: 0;
+        transform: translateY(-30%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

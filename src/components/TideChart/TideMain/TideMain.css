@@ -1,0 +1,32 @@
+.chartTypeBtn{
+    font-size : 5vh;
+    animation: showTypeAnime 0.3s ease-in-out forwards 0s;
+}
+
+.chartTypeBtnActive {
+    animation: chngTypeAnime 0.3s ease-in forwards 0s;
+}
+
+@keyframes showTypeAnime {
+    0%{
+        transform:translateY(0px);
+        font-size : 7vh;
+    }
+
+    100%{
+        transform:translateY(5px);
+        font-size : 9vh;
+    }
+}
+
+
+@keyframes chngTypeAnime {
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(0.8);
+        opacity: 0.3
+    }
+}

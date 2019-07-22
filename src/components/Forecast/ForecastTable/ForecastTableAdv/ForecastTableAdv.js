@@ -2,10 +2,11 @@ import React from 'react';
 import ForecastHeader from "../../ForecastHeader/ForecastHeader";
 import { WiNightCloudyWindy, WiHumidity, WiBarometer} from 'react-icons/wi'
 import { FaLowVision } from 'react-icons/fa'
+import './ForecastTableAdv.css'
 
 export default function(props) {
     return (
-       <div>
+       <div className="foreCastTableAdv">
            <ForecastHeader
                headline="Visibility"
                cell1={ "km: " + props.forecast.sigHeight_m }

@@ -7,25 +7,6 @@ import { FaGlobeAmericas, FaStarOfDavid} from 'react-icons/fa';
 
 export default class Main extends React.Component{
 
-    state = {
-        bStyleActive : {
-            fontSize : '6vh',
-        },
-        bStyle : {
-            fontSize : '9vh'
-        },
-        bActiveNow : {
-            opacity : '0.3',
-        },
-        pressed : [false,false],
-    }
-
-    setIconStyle = (option) => {
-        this.setState({
-            pressed : option
-        })
-    }
-
     render(){
         console.log(this.props.match.url)
         return (
@@ -36,10 +17,8 @@ export default class Main extends React.Component{
                         <NavLink
                             exact
                             to={ this.props.match.url +'/israel' }
-                            className="col-3"
-                            style={this.state.bStyle}
-                            activeStyle = { this.state.pressed[0] ? {...this.state.bActiveNow ,...this.state.bStyleActive} : null }
-                            onClick = { () => this.setIconStyle([1,0]) }
+                            className="col-3 chartTypeBtn"
+                            activeClassName="chartTypeBtnActive active"
                         >
                             <FaStarOfDavid style={{color:'#0D47A1'}}/>
                         </NavLink>
@@ -47,11 +26,8 @@ export default class Main extends React.Component{
                         <NavLink
                             exact
                             to={ this.props.match.url +'/global' }
-                            className="col-3"
-                            style={this.state.bStyle}
-                            activeStyle={this.state.bStyleActive}
-                            activeStyle = { this.state.pressed[1] ? {...this.state.bActiveNow ,...this.state.bStyleActive} : null }
-                            onClick = { () => this.setIconStyle([0,1]) }
+                            className="col-3 chartTypeBtn"
+                            activeClassName="chartTypeBtnActive active"
                         >
                             <FaGlobeAmericas style={{color:'#0D47A1'}}/>
                         </NavLink>

@@ -3,6 +3,7 @@ import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
 import { reqWeather } from '../../marinWeatherAPI/tempRequestsHandler.js'
 import ForecastTable from './ForecastTable/ForecastTable'
 import './Forecast.css'
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import { Redirect } from 'react-router-dom'
 import { mapInit, translateCoord } from '../../mapbox/mapboxInit'
 
@@ -13,23 +14,23 @@ export default class Forecast extends Component{
         marineData : null,
         curDate : 0,
         curTime : 0,
-        marker : null
+        marker : null,
+        showMap : 'none',
+        showLoader : true
+    }
+
+    constructor(){
+        super()
+        this.tableRef = React.createRef()
     }
 
     componentDidUpdate(prevState) {
         if (this.state.marineData !== null) {
-            window.scrollTo(0,300)
+            window.scrollTo(0,this.tableRef.current.offsetTop)
         }
     }
 
     componentDidMount() {
-        // navigator.geolocation.watchPosition(function(position) {
-        //         console.log("i'm tracking you!");
-        //     },
-        //     function(error) {
-        //         if (error.code == error.PERMISSION_DENIED)
-        //             console.log("you denied me :-(");
-        //     });
         navigator.geolocation.getCurrentPosition((res) => this.initMapbox(res),
             (rej) => this.initMapbox({ coords : { longitude : 0 , latitude : 0} }))
     }
@@ -72,22 +73,22 @@ export default class Forecast extends Component{
 
         });
 
-        this.setState({
+        setTimeout( () => {
+            this.setState({
+                showMap : '',
+                showLoader : false
+            })
+
+            map.resize()
+        },1000)
+
+        await this.setState({
             map : map
         })
 
 
+
     }
-    //
-    // translateCoord(coord,marker){
-    //     let coordinates =  [JSON.stringify(coord.point),JSON.stringify(coord.lngLat)]
-    //     coordinates = coordinates[1].split(',')
-    //     coordinates = [coordinates[0].slice(7,coordinates[0].length),coordinates[1].slice(6,coordinates[1].length-1)]
-    //     if(marker){
-    //         return coordinates
-    //     }
-    //     return [coordinates[0].slice(0,3)+parseInt(coordinates[0].slice(3,5)*0.6),coordinates[1].slice(0,3)+parseInt(coordinates[1].slice(3,5)*0.6)]
-    // }
 
     translateTime(time){
         if( time == 0){
@@ -138,6 +139,12 @@ export default class Forecast extends Component{
     render(){
         return (
             <div>
+                <div className="mt-5">
+                    { this.state.showLoader ?
+                        <LoadingSpinner />
+                    : null}
+                </div>
+
                 { this.state.apiErr ?
                     <Redirect
                         to='/apiKeyErr'
@@ -145,21 +152,28 @@ export default class Forecast extends Component{
                     </Redirect>
                     : null}
                 <div className="container Forecast">
-                    {!this.state.coordClicked?
+                    {!this.state.coordClicked && !this.state.showLoader ?
                         <h6>Click on the map to choose location</h6>
                     :null}
-                    <div id="mapForecast" className="mapbox row border border-dark mb-2 " >
+                    <div style = {{ display : this.state.showMap }}
+                         id="mapForecast"
+                         className="mapbox row border border-dark mb-2 " >
                     </div>
 
                     {this.state.marineData?
-                        <ForecastTable
-                            forecast = { this.state.marineData[this.state.curDate].hourly[this.state.curTime] }
-                            coordinates = {this.state.coordClicked}
-                            date = {this.state.marineData[this.state.curDate].date}
-                            hour = { this.translateTime(this.state.marineData[this.state.curDate].hourly[this.state.curTime].time) }
-                            hourAndDay = {{day : this.state.curDate, hour : this.state.curTime }}
-                            clickNav = { this.dateNavClicked }
-                        />
+                        <div
+                            ref = { this.tableRef }
+                        >
+                            <ForecastTable
+                                forecast = { this.state.marineData[this.state.curDate].hourly[this.state.curTime] }
+                                coordinates = {this.state.coordClicked}
+                                date = {this.state.marineData[this.state.curDate].date}
+                                hour = { this.translateTime(this.state.marineData[this.state.curDate].hourly[this.state.curTime].time) }
+                                hourAndDay = {{day : this.state.curDate, hour : this.state.curTime }}
+                                clickNav = { this.dateNavClicked }
+                            />
+                        </div>
+
                     :null}
                 </div>
             </div>

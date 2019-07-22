@@ -2,12 +2,64 @@
     background: #015871;
 }
 
+
+
 .logo {
     background-image: url("../../../Logo2.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     height: 10vh;
+    animation: logoAnime 1s ease-in forwards 0s;
 }
+
+.navBtnAnime {
+    animation: mainBtnAnime 0.8s ease-in-out forwards 0s;
+    opacity: 0;
+}
+
+.navBtnAnimeTop {
+
+}
+
+
+@keyframes mainBtnAnime {
+    0%{
+        transform:translateY(-30px);
+        font-size: 0%;
+    }
+
+    100%{
+        transform:translateY(15px);
+        font-size: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes mainBtnAnimeTop {
+    0%{
+        transform:translateY(0px);
+    }
+
+    100%{
+        transform:translateY(-10px);
+    }
+}
+
+@keyframes logoAnime {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 100;
+    }
+}
+
+.navBtnAnimeTop  {
+    animation: mainBtnAnimeTop 0.5s forwards 0s;
+}
+
+
 
 /* code for the sun  */
