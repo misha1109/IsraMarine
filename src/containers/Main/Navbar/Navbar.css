@@ -10,18 +10,13 @@
     background-size: contain;
     background-position: center;
     height: 10vh;
-    animation: logoAnime 1s ease-in forwards 0s;
+    animation: logoAnime 0.7s ease-in forwards 0s;
 }
 
 .navBtnAnime {
-    animation: mainBtnAnime 0.8s ease-in-out forwards 0s;
+    animation: mainBtnAnime 0.5s ease-in-out forwards 0s;
     opacity: 0;
 }
-
-.navBtnAnimeTop {
-
-}
-
 
 @keyframes mainBtnAnime {
     0%{
@@ -48,16 +43,21 @@
 
 @keyframes logoAnime {
     0%{
-        opacity: 0;
+        transform: translateX(-60px);
+    }
+
+    75%{
+        transform: translateX(15px);
     }
 
     100%{
         opacity: 100;
+        transform: translateX(0px);
     }
 }
 
 .navBtnAnimeTop  {
-    animation: mainBtnAnimeTop 0.5s forwards 0s;
+    animation: mainBtnAnimeTop 0.3s forwards 0s;
 }
 
 

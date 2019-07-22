@@ -1,7 +1,7 @@
 .mapboxTide{
     height: 35vh;
     border-radius: 10px;
-    animation: mapAnime 0.7s ease-in-out forwards 0s;
+    animation: mapAnime 0.4s ease-in-out forwards 0s;
 }
 
 .markerTide {

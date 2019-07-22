@@ -1,10 +1,10 @@
 .chartTypeBtn{
-    font-size : 5vh;
-    animation: showTypeAnime 0.3s ease-in-out forwards 0s;
+    font-size : 6vh;
+    animation: showTypeAnime 0.2s ease-in-out forwards 0s;
 }
 
 .chartTypeBtnActive {
-    animation: chngTypeAnime 0.3s ease-in forwards 0s;
+    animation: chngTypeAnime 0.2s ease-in forwards 0s;
 }
 
 @keyframes showTypeAnime {
