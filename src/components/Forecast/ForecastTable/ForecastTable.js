@@ -4,7 +4,7 @@ import '../ForecastHeader/ForecastHeader'
 import ForecastHeader from "../ForecastHeader/ForecastHeader";
 import ForecastTableAdv from "./ForecastTableAdv/ForecastTableAdv"
 import ForecastDateNav from "../ForcastDateNav/ForecastDateNav"
-import { FaCrosshairs, FaTemperatureHigh, FaWind} from 'react-icons/fa';
+import { FaCrosshairs, FaTemperatureHigh, FaWind } from 'react-icons/fa';
 import { TiWaves} from 'react-icons/ti';
 import { WiNightCloudyWindy } from 'react-icons/wi'
 
@@ -47,57 +47,62 @@ export default class ForecastTable extends Component {
 
     render(){
         return (
-            <div className="foreCastTable card mb-3" style={{ borderRadius : "15px", opacity : '0.9' }}>
-                <div className="container">
-                    <ForecastDateNav
-                        click = { this.props.clickNav }
-                        date={this.transformDate(this.props.date)}
-                        hour={this.props.hour}
-                        hourAndDay = { this.props.hourAndDay }
-                    ></ForecastDateNav>
-                    <ForecastHeader
-                        headline="Position"
-                        cell1={ "Latitude: " + this.props.coordinates[0]}
-                        cell2={ "Longtitude: " + this.props.coordinates[1]}
-                    >
-                        <FaCrosshairs/>
-                    </ForecastHeader>
-                    <div className="dropdown-divider"></div>
-                    <ForecastHeader
-                        headline="Temperature C"
-                        cell1={ "Air: " + this.props.forecast.tempC }
-                        cell2={ "Water: " + this.props.forecast.waterTemp_C}
-                    >
-                        <FaTemperatureHigh/>
-                    </ForecastHeader>
-                    <div className="dropdown-divider"></div>
-                    <ForecastHeader
-                        headline="Wind"
-                        cell1={ "kmh: " + this.props.forecast.windspeedKmph }
-                        cell2={ "degree: " + this.props.forecast.winddirDegree}
-                    >
-                        <FaWind/>
-                    </ForecastHeader>
-                    <div className="dropdown-divider"></div>
-                    <ForecastHeader
-                        headline="Wave"
-                        cell1={ "Max height: " + this.props.forecast.sigHeight_m }
-                        cell2={ "Swell height: " + this.props.forecast.swellHeight_m}
-                    >
-                        <TiWaves/>
-                    </ForecastHeader>
-                    <div className="dropdown-divider"></div>
-                    {
-                        this.state.showAdv ?
-                            <ForecastTableAdv
-                                forecast = {this.props.forecast}
-                            ></ForecastTableAdv>
-                        :null
-                    }
-                    <button id="advButton" onClick={ () => this.clickAdvButton()}
-                            className="btn btn-info mb-3">
+            <div>
+                <div  className="col-2" style={{fontSize : '20px' , color:'#01579B'}}>
+                    { this.props.children }
+                </div>
+                <div className="foreCastTable card mb-3" style={{ borderRadius : "15px", opacity : '0.9' }}>
+                    <div className="container">
+                        <ForecastDateNav
+                            click = { this.props.clickNav }
+                            date={this.transformDate(this.props.date)}
+                            hour={this.props.hour}
+                            hourAndDay = { this.props.hourAndDay }
+                        ></ForecastDateNav>
+                        <ForecastHeader
+                            headline="Position"
+                            cell1={ "Latitude: " + this.props.coordinates[0]}
+                            cell2={ "Longtitude: " + this.props.coordinates[1]}
+                        >
+                            <FaCrosshairs/>
+                        </ForecastHeader>
+                        <div className="dropdown-divider"></div>
+                        <ForecastHeader
+                            headline="Temperature C"
+                            cell1={ "Air: " + this.props.forecast.tempC }
+                            cell2={ "Water: " + this.props.forecast.waterTemp_C}
+                        >
+                            <FaTemperatureHigh/>
+                        </ForecastHeader>
+                        <div className="dropdown-divider"></div>
+                        <ForecastHeader
+                            headline="Wind"
+                            cell1={ "kmh: " + this.props.forecast.windspeedKmph }
+                            cell2={ "degree: " + this.props.forecast.winddirDegree}
+                        >
+                            <FaWind/>
+                        </ForecastHeader>
+                        <div className="dropdown-divider"></div>
+                        <ForecastHeader
+                            headline="Wave"
+                            cell1={ "Max height: " + this.props.forecast.sigHeight_m }
+                            cell2={ "Swell height: " + this.props.forecast.swellHeight_m}
+                        >
+                            <TiWaves/>
+                        </ForecastHeader>
+                        <div className="dropdown-divider"></div>
+                        {
+                            this.state.showAdv ?
+                                <ForecastTableAdv
+                                    forecast = {this.props.forecast}
+                                ></ForecastTableAdv>
+                                :null
+                        }
+                        <button id="advButton" onClick={ () => this.clickAdvButton()}
+                                className="btn btn-info mb-3">
                             {this.state.AdvText}
-                    </button>
+                        </button>
+                    </div>
                 </div>
             </div>
         )

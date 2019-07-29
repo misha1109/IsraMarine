@@ -1,17 +1,19 @@
 import React , {Component} from 'react'
 import Chart from '../Chart/Chart'
 import TideNav from '../TideNavigation/TideNavigation'
-import { reqWeather } from "../../../marinWeatherAPI/tempRequestsHandler";
+import { reqWeather } from "../../../marinWeatherAPI/requestsHandler";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner"
 import NoDataMsg from '../NoDataMsg/NoDataMsg'
 import {mapInit, translateCoord} from "../../../mapbox/mapboxInit";
 import mapboxgl from "mapbox-gl";
 import { possitionsIsrael } from './possitionsIsrael.js'
+import { FaRegSave } from 'react-icons/fa'
 import { Redirect } from 'react-router-dom'
 import '../Chart/Chart.css'
 
 
 import './TideChart.css'
+import ForecastTable from "../../Forecast/ForecastTable/ForecastTable";
 
 
 
@@ -178,7 +180,7 @@ export default class TideChart extends Component {
                 spinLoader : false
             })
             map.resize()
-        },1000)
+        },700)
 
      }
 
@@ -216,6 +218,9 @@ export default class TideChart extends Component {
                 >
                     { this.state.loaded ?
                         <div className="chart">
+                            <div  className="col-2" style={{fontSize : '20px' , color:'#01579B'}}>
+                                <FaRegSave/>
+                            </div>
                             <TideNav
                                 date = { this.state.date[this.state.day] }
                                 click = { this.changeDay }

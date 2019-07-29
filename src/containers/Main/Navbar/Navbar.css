@@ -10,10 +10,11 @@
     background-size: contain;
     background-position: center;
     height: 10vh;
-    animation: logoAnime 0.7s ease-in forwards 0s;
+    animation: logoAnime 1s ease-in forwards 0s;
 }
 
 .navBtnAnime {
+    text-align: center;
     animation: mainBtnAnime 0.5s ease-in-out forwards 0s;
     opacity: 0;
 }

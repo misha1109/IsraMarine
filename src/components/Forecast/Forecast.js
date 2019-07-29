@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
-import { reqWeather } from '../../marinWeatherAPI/tempRequestsHandler.js'
+import { reqWeather } from '../../marinWeatherAPI/requestsHandler.js'
 import ForecastTable from './ForecastTable/ForecastTable'
 import './Forecast.css'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import { Redirect } from 'react-router-dom'
 import { mapInit, translateCoord } from '../../mapbox/mapboxInit'
+import { FaRegSave } from 'react-icons/fa'
 
 export default class Forecast extends Component{
 
@@ -70,7 +71,6 @@ export default class Forecast extends Component{
         map.on('click',  async (e) => {
             await this.setCoordinates(e)
             await this.getWeather()
-
         });
 
         setTimeout( () => {
@@ -80,7 +80,7 @@ export default class Forecast extends Component{
             })
 
             map.resize()
-        },1000)
+        },700)
 
         await this.setState({
             map : map
@@ -171,7 +171,11 @@ export default class Forecast extends Component{
                                 hour = { this.translateTime(this.state.marineData[this.state.curDate].hourly[this.state.curTime].time) }
                                 hourAndDay = {{day : this.state.curDate, hour : this.state.curTime }}
                                 clickNav = { this.dateNavClicked }
-                            />
+                            >
+                                <FaRegSave
+                                    onClick = { () => { console.log(this.state.marineData) }}
+                                />
+                            </ForecastTable>
                         </div>
 
                     :null}
