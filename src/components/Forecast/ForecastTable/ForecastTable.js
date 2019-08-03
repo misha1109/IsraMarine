@@ -4,9 +4,9 @@ import '../ForecastHeader/ForecastHeader'
 import ForecastHeader from "../ForecastHeader/ForecastHeader";
 import ForecastTableAdv from "./ForecastTableAdv/ForecastTableAdv"
 import ForecastDateNav from "../ForcastDateNav/ForecastDateNav"
+import ForecastTableRows from "./ForecastTableRows"
 import { FaCrosshairs, FaTemperatureHigh, FaWind } from 'react-icons/fa';
 import { TiWaves} from 'react-icons/ti';
-import { WiNightCloudyWindy } from 'react-icons/wi'
 
 
 
@@ -59,37 +59,41 @@ export default class ForecastTable extends Component {
                             hour={this.props.hour}
                             hourAndDay = { this.props.hourAndDay }
                         ></ForecastDateNav>
-                        <ForecastHeader
-                            headline="Position"
-                            cell1={ "Latitude: " + this.props.coordinates[0]}
-                            cell2={ "Longtitude: " + this.props.coordinates[1]}
-                        >
-                            <FaCrosshairs/>
-                        </ForecastHeader>
-                        <div className="dropdown-divider"></div>
-                        <ForecastHeader
-                            headline="Temperature C"
-                            cell1={ "Air: " + this.props.forecast.tempC }
-                            cell2={ "Water: " + this.props.forecast.waterTemp_C}
-                        >
-                            <FaTemperatureHigh/>
-                        </ForecastHeader>
-                        <div className="dropdown-divider"></div>
-                        <ForecastHeader
-                            headline="Wind"
-                            cell1={ "kmh: " + this.props.forecast.windspeedKmph }
-                            cell2={ "degree: " + this.props.forecast.winddirDegree}
-                        >
-                            <FaWind/>
-                        </ForecastHeader>
-                        <div className="dropdown-divider"></div>
-                        <ForecastHeader
-                            headline="Wave"
-                            cell1={ "Max height: " + this.props.forecast.sigHeight_m }
-                            cell2={ "Swell height: " + this.props.forecast.swellHeight_m}
-                        >
-                            <TiWaves/>
-                        </ForecastHeader>
+                        {/*<ForecastHeader*/}
+                        {/*    headline="Position"*/}
+                        {/*    cell1={ "Latitude: " + this.props.coordinates[0]}*/}
+                        {/*    cell2={ "Longtitude: " + this.props.coordinates[1]}*/}
+                        {/*>*/}
+                        {/*    <FaCrosshairs/>*/}
+                        {/*</ForecastHeader>*/}
+                        {/*<div className="dropdown-divider"></div>*/}
+                        {/*<ForecastHeader*/}
+                        {/*    headline="Temperature C"*/}
+                        {/*    cell1={ "Air: " + this.props.forecast.tempC }*/}
+                        {/*    cell2={ "Water: " + this.props.forecast.waterTemp_C}*/}
+                        {/*>*/}
+                        {/*    <FaTemperatureHigh/>*/}
+                        {/*</ForecastHeader>*/}
+                        {/*<div className="dropdown-divider"></div>*/}
+                        {/*<ForecastHeader*/}
+                        {/*    headline="Wind"*/}
+                        {/*    cell1={ "kmh: " + this.props.forecast.windspeedKmph }*/}
+                        {/*    cell2={ "degree: " + this.props.forecast.winddirDegree}*/}
+                        {/*>*/}
+                        {/*    <FaWind/>*/}
+                        {/*</ForecastHeader>*/}
+                        {/*<div className="dropdown-divider"></div>*/}
+                        {/*<ForecastHeader*/}
+                        {/*    headline="Wave"*/}
+                        {/*    cell1={ "Max height: " + this.props.forecast.sigHeight_m }*/}
+                        {/*    cell2={ "Swell height: " + this.props.forecast.swellHeight_m}*/}
+                        {/*>*/}
+                        {/*    <TiWaves/>*/}
+                        {/*</ForecastHeader>*/}
+                        <ForecastTableRows
+                            coordinates = {this.props.coordinates}
+                            forecast = {this.props.forecast}
+                        />
                         <div className="dropdown-divider"></div>
                         {
                             this.state.showAdv ?

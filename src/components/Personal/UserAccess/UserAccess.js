@@ -3,7 +3,7 @@ export default function persoanlMain(props){
 
     return (
         <div className={ props.className }>
-            <div style={{backgroundColor:"#F0F8FF",opacity:"0.9"}} className="container card ma-0 pa-0 ">
+            <div style={{backgroundColor:"#F0F8FF",background: "rgba(255,255,255,0.95)"}} className="container card ma-0 pa-0 ">
                 <div className="row">
                     <div className="col-12">
                         <h5>{ props.header }</h5>
