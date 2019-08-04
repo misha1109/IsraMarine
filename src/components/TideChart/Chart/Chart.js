@@ -6,10 +6,11 @@ export default class Chart extends Component {
 
     render() {
         const labels = ["MIDNIGHT","MORNING","AFTERNOON","EVENING"]
-        const titleText = this.props.name
+        const titleText =  this.props.type == "saved tides" ? this.props.coordinates : this.props.name
         const heightData = []
         let avg = 0
-        this.props.tides.tides[0].tide_data.forEach( (el,i) => {
+        const tides = this.props.type == "saved tides" ?  this.props.tides : this.props.tides.tides[0].tide_data
+        tides.forEach( (el,i) => {
             heightData.push({
                 label : labels[i],
                 y : parseFloat(el.tideHeight_mt)
@@ -37,7 +38,7 @@ export default class Chart extends Component {
                 ]
             },
             data: [{
-                yValueFormatString: "m",
+                yValueFormatString: "####.00m",
                 type: "spline",
                 dataPoints: [
                     ...heightData

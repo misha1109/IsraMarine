@@ -5,7 +5,7 @@ import { FaChartArea , FaUserAlt} from 'react-icons/fa'
 import SavedData from './SavedData/SavedData'
 
 import { connect } from 'react-redux'
-import {USER_SET_SAVED} from "../../../store/actions";
+import {USER_SET_SAVED , USER_LOGOUT} from "../../../store/actions";
 import { httpGetTides , httpGetForecasts } from "../../../userAPI/requestHandler";
 
 class LoggedInMenu extends Component{
@@ -20,16 +20,20 @@ class LoggedInMenu extends Component{
     }
 
     async componentWillMount(){
-        const tempUser ='m1@g.c'
-        const tides = await httpGetTides(tempUser)
-        const forecasts = await httpGetForecasts(tempUser)
+        // const tempUser ='m3@g.c'
+        const tides = await httpGetTides(this.props.loggedUser)
+        const forecasts = await httpGetForecasts(this.props.loggedUser)
         this.props.setSaved(tides.message,forecasts.message)
     }
 
     render() {
         return (
             <div style={{backgroundColor:"#F0F8FF",opacity:"0.9"}} className="container card personalMain pt-2 pb-2">
-                <div className="row pt-3 pb-3">
+                <button
+                    className="logoutBtn btn btn-sm btn-danger"
+                    onClick={ this.props.logout }
+                >logout</button>
+                <div className="row pt-5 pb-3">
                     <FaUserAlt
                         style={{fontSize:'20px'}}
                         onClick={ () => this.setState({showForecasts : false , showTides : false})}
@@ -61,7 +65,7 @@ class LoggedInMenu extends Component{
                 { this.state.showTides ?
                     <SavedData
                         type="tides"
-                        data={this.props.savedForecasts}
+                        data={this.props.savedTides}
                     />
                 : null}
             </div>
@@ -83,6 +87,9 @@ const mapDispatchToProps = dispatch => {
             type : USER_SET_SAVED,
             tides : tides,
             forecasts : forecasts
+        }),
+        logout : () => dispatch({
+            type : USER_LOGOUT
         })
     }
 }

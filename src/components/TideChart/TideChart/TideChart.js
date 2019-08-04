@@ -11,13 +11,15 @@ import { FaRegSave } from 'react-icons/fa'
 import { Redirect } from 'react-router-dom'
 import '../Chart/Chart.css'
 
+import { connect } from 'react-redux'
+
 
 import './TideChart.css'
-import ForecastTable from "../../Forecast/ForecastTable/ForecastTable";
+import {httpAddTides} from "../../../userAPI/requestHandler";
 
 
 
-export default class TideChart extends Component {
+class TideChart extends Component {
      state = {
          day : 0,
          loaded : false,
@@ -101,7 +103,6 @@ export default class TideChart extends Component {
                          tides : res.data.weather
                      })
                      if(tempLoaded.length == possitions.length){
-                         console.log(res.data.weather)
                          if(res.data.weather){
                              const dates = res.data.weather.map( el => {
                                  return el.date
@@ -191,6 +192,32 @@ export default class TideChart extends Component {
          })
     }
 
+    saveTides = async (tides) => {
+        console.log(tides)
+        const data = tides.map( el => {
+            let coords
+            let splitName = el.name.split(" ")
+
+            if(splitName.length==2){
+                coords = splitName[1].split(",")
+                coords = [[coords[0],coords[1]]]
+            }
+            else{
+                coords = [splitName[0],""]
+            }
+
+            return {
+                position : coords,
+                date : el.tides[0].date,
+                tides : el.tides[0].tides[0].tide_data
+            }
+        })
+        const reply = await httpAddTides({
+            email : this.props.loggedUser,
+            tides : data
+        })
+    }
+
     render(){
         return (
             <div>
@@ -218,9 +245,11 @@ export default class TideChart extends Component {
                 >
                     { this.state.loaded ?
                         <div className="chart">
-                            <div  className="col-2" style={{fontSize : '20px' , color:'#01579B'}}>
-                                <FaRegSave/>
-                            </div>
+                            { this.props.loggedUser ?
+                                <div  className="col-2" style={{fontSize : '20px' , color:'#01579B'}}>
+                                    <FaRegSave onClick = { () => this.saveTides(this.state.loaded,this.state.coordClicked) }/>
+                                </div>
+                                : null}
                             <TideNav
                                 date = { this.state.date[this.state.day] }
                                 click = { this.changeDay }
@@ -247,3 +276,11 @@ export default class TideChart extends Component {
     }
 
 }
+
+const mapStateToProps = state => {
+    return {
+        loggedUser : state.user,
+    }
+}
+
+export default connect(mapStateToProps )(TideChart)

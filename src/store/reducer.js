@@ -20,6 +20,12 @@ const reducer = ( state = initialState, action) => {
                 tides : action.tides,
                 forecasts : action.forecasts
             }
+        case actionTypes.USER_LOGOUT:
+            return {
+                user : null,
+                tides : null,
+                forecasts : null
+            }
     }
 
     return state

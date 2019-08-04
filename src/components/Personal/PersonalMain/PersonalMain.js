@@ -4,7 +4,7 @@ import LoggedInMenu from '../LoggedInMenu/LoggedInMenu'
 import { connect } from 'react-redux'
 import { USER_LOGIN } from '../../../store/actions'
 
-import { httpLogin } from '../../../userAPI/requestHandler'
+import { httpLogin , httpSignUp } from '../../../userAPI/requestHandler'
 
 import './PersonalMain.css'
 
@@ -17,6 +17,11 @@ class PersonalMain extends Component {
         pass : '',
         passConf : '',
         errMsg : null
+    }
+
+    //TO BE DELETED!!!
+    componentWillMount() {
+        this.login('m3@g.c','1')
     }
 
     changeUserType = () => {
@@ -32,6 +37,36 @@ class PersonalMain extends Component {
         else{
             this.setState({
                 errMsg : reply.message
+            })
+        }
+    }
+
+    signUp = async (email,pass1,pass2) => {
+        let errHolder = false
+        if(pass1 === pass2){
+            const reply = await httpSignUp(email,pass1)
+            if(reply.success){
+                await this.login(email,pass1)
+                this.setState({
+                    errMsg : null
+                })
+            }
+            else{
+                errHolder = reply.message
+            }
+        }
+        else{
+            if(!(email&&pass1&&pass2)){
+                errHolder = "Fill all fields"
+            }
+            else{
+                errHolder = "Passwords dont match"
+            }
+        }
+
+        if(errHolder){
+            this.setState({
+                errMsg : errHolder
             })
         }
     }
@@ -52,7 +87,7 @@ class PersonalMain extends Component {
                                 <div className="col-12">
                                     { this.state.errMsg ?
                                         <h6 className="container" style={{color:'red'}}>{ this.state.errMsg }</h6>
-                                        : null}
+                                    : null}
                                     <button onClick={ () => this.login( this.state.email, this.state.pass ) } className="btn btn-primary mb-2">Submit</button>
                                     <h6>Or</h6>
                                     <button onClick={ this.changeUserType } className="btn btn-outline-warning mb-2">Create an account</button>
@@ -68,7 +103,10 @@ class PersonalMain extends Component {
                                 click = { this.changeUserType }
                             >
                                 <div className="col-12">
-                                    <button onClick={ () => console.log(this.state.email, this.state.pass, this.state.pass2)}  className="btn btn-warning mb-2">Confirm</button>
+                                    { this.state.errMsg ?
+                                        <h6 className="container" style={{color:'red'}}>{ this.state.errMsg }</h6>
+                                    : null}
+                                    <button onClick={ () => this.signUp(this.state.email, this.state.pass, this.state.pass2)}  className="btn btn-warning mb-2">Confirm</button>
                                 </div>
                             </UserAccess>
                         }

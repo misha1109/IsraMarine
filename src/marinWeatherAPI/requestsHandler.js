@@ -6,7 +6,6 @@ const urlPath = 'https://isra-marine.herokuapp.com/weather/getWeather'
 
 
 export  async function reqWeather( coordinates){
-    console.log(coordinates)
     try{
         let res = await axios({
             method: 'post',

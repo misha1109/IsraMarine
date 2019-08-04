@@ -16,6 +16,11 @@
     animation: savedExpandAnime 0.3s ease-in-out forwards 0s;
 }
 
+.logoutBtn{
+    position:absolute;
+    right:10px;
+}
+
 @keyframes savedExpandAnime {
     0%{
         opacity: 0;

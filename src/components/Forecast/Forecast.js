@@ -8,7 +8,10 @@ import { Redirect } from 'react-router-dom'
 import { mapInit, translateCoord } from '../../mapbox/mapboxInit'
 import { FaRegSave } from 'react-icons/fa'
 
-export default class Forecast extends Component{
+import { httpAddForecast } from '../../userAPI/requestHandler'
+import { connect } from 'react-redux'
+
+class Forecast extends Component{
 
     state = {
         coordClicked : null,
@@ -17,7 +20,8 @@ export default class Forecast extends Component{
         curTime : 0,
         marker : null,
         showMap : 'none',
-        showLoader : true
+        showLoader : true,
+        showLoaderForecast : false
     }
 
     constructor(){
@@ -45,6 +49,10 @@ export default class Forecast extends Component{
     }
 
     getWeather =async () => {
+        this.setState({
+            showLoaderForecast: true,
+            marineData : null
+        })
         const data = await reqWeather(this.state.coordClicked)
         if(data.data){
             this.setState({marineData : data.data.weather})
@@ -56,7 +64,9 @@ export default class Forecast extends Component{
                 })
             }
         }
-
+        this.setState({
+            showLoaderForecast: false
+        })
     }
 
 
@@ -136,6 +146,27 @@ export default class Forecast extends Component{
         }
     }
 
+    saveForecast = async (coordinates,forecasts) => {
+        const curForecast = forecasts[0].hourly[0]
+        const data = {
+            email : this.props.loggedUser,
+            weather : {
+                date : forecasts[0].date,
+                position : coordinates,
+                weather : {
+                    tempC : curForecast.tempC,
+                    waterTemp_C : curForecast.waterTemp_C,
+                    windspeedKmph : curForecast.windspeedKmph,
+                    winddirDegree : curForecast.winddirDegree,
+                    sigHeight_m : curForecast.sigHeight_m,
+                    swellHeight_m : curForecast.swellHeight_m,
+                }
+            }
+        }
+        const reply = await httpAddForecast(data)
+        console.log(reply)
+    }
+
     render(){
         return (
             <div>
@@ -159,7 +190,9 @@ export default class Forecast extends Component{
                          id="mapForecast"
                          className="mapbox row border border-dark mb-2 " >
                     </div>
-
+                    { this.state.showLoaderForecast ?
+                        <LoadingSpinner/>
+                    : null }
                     {this.state.marineData?
                         <div
                             ref = { this.tableRef }
@@ -172,15 +205,24 @@ export default class Forecast extends Component{
                                 hourAndDay = {{day : this.state.curDate, hour : this.state.curTime }}
                                 clickNav = { this.dateNavClicked }
                             >
-                                <FaRegSave
-                                    onClick = { () => { console.log(this.state.marineData) }}
-                                />
+                                { this.props.loggedUser ?
+                                    <FaRegSave
+                                        onClick = { () => { this.saveForecast(this.state.coordClicked ,this.state.marineData) }}
+                                    />
+                                : null}
                             </ForecastTable>
                         </div>
-
                     :null}
                 </div>
             </div>
         )
+    }
 }
+
+const mapStateToProps = state => {
+    return {
+        loggedUser : state.user,
+    }
 }
+
+export default connect(mapStateToProps )(Forecast)
