@@ -18,12 +18,7 @@ class PersonalMain extends Component {
         passConf : '',
         errMsg : null
     }
-
-    //TO BE DELETED!!!
-    componentWillMount() {
-        this.login('m3@g.c','1')
-    }
-
+    
     changeUserType = () => {
         this.setState({ newUser : !this.state.newUser, firstMount : false })
     }

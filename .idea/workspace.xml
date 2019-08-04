@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08af6f7a-7502-4f93-8317-5b3bb5cf8a5e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/Forecast/Forecast.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forecast/Forecast.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Personal/LoggedInMenu/LoggedInMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Personal/LoggedInMenu/LoggedInMenu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Personal/LoggedInMenu/LoggedInMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Personal/LoggedInMenu/LoggedInMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Personal/LoggedInMenu/SavedData/SavedData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Personal/LoggedInMenu/SavedData/SavedData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Personal/PersonalMain/PersonalMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Personal/PersonalMain/PersonalMain.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TideChart/Chart/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TideChart/Chart/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TideChart/TideChart/TideChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TideChart/TideChart/TideChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/marinWeatherAPI/requestsHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/marinWeatherAPI/requestsHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userAPI/requestHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/userAPI/requestHandler.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Personal/PersonalMain/PersonalMain.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+            <state relative-caret-position="337">
+              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -94,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Personal/LoggedInMenu/LoggedInMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+            <state relative-caret-position="382">
+              <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -140,7 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>scope</find>
       <find>service-wo</find>
       <find>co</find>
       <find>changeUserType</find>
@@ -170,6 +159,7 @@
       <find>possition</find>
       <find>props</find>
       <find>titleText</find>
+      <find>to be</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -218,7 +208,6 @@
         <option value="$PROJECT_DIR$/src/components/Forecast/ForecastTable/ForecastTable.js" />
         <option value="$PROJECT_DIR$/src/components/Forecast/ForecastTable/ForecastTableRows.js" />
         <option value="$PROJECT_DIR$/src/components/Personal/UserAccess/UserAccess.js" />
-        <option value="$PROJECT_DIR$/src/components/Personal/PersonalMain/PersonalMain.js" />
         <option value="$PROJECT_DIR$/src/components/Forecast/Forecast.js" />
         <option value="$PROJECT_DIR$/src/marinWeatherAPI/requestsHandler.js" />
         <option value="$PROJECT_DIR$/src/userAPI/requestHandler.js" />
@@ -229,6 +218,7 @@
         <option value="$PROJECT_DIR$/src/store/actions.js" />
         <option value="$PROJECT_DIR$/src/store/reducer.js" />
         <option value="$PROJECT_DIR$/src/components/Personal/LoggedInMenu/LoggedInMenu.js" />
+        <option value="$PROJECT_DIR$/src/components/Personal/PersonalMain/PersonalMain.js" />
       </list>
     </option>
   </component>
@@ -347,18 +337,18 @@
       <workItem from="1563531987186" duration="73759000" />
       <workItem from="1563812405397" duration="29980000" />
       <workItem from="1564093809508" duration="686000" />
-      <workItem from="1564406887181" duration="50099000" />
+      <workItem from="1564406887181" duration="50550000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260965000" />
+    <option name="totallyTimeSpent" value="261416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24970368" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24970368" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -718,16 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Personal/PersonalMain/PersonalMain.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Personal/LoggedInMenu/SavedData/SavedData.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -784,8 +764,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Personal/LoggedInMenu/LoggedInMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        <state relative-caret-position="382">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Personal/PersonalMain/PersonalMain.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
