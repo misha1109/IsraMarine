@@ -1,0 +1,13 @@
+.scaleMsg{
+    animation : scaleMsgAnime 0.4s 0s forwards ease-in-out;
+}
+
+@keyframes scaleMsgAnime {
+    0%{
+        transform: scale(0);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}

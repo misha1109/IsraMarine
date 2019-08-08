@@ -4,10 +4,10 @@ import { reqWeather } from '../../marinWeatherAPI/requestsHandler.js'
 import ForecastTable from './ForecastTable/ForecastTable'
 import './Forecast.css'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
+import SavedSnackBar from '../SaveSnackBar/SaveSnackBar'
 import { Redirect } from 'react-router-dom'
 import { mapInit, translateCoord } from '../../mapbox/mapboxInit'
 import { FaRegSave } from 'react-icons/fa'
-
 import { httpAddForecast } from '../../userAPI/requestHandler'
 import { connect } from 'react-redux'
 
@@ -147,6 +147,8 @@ class Forecast extends Component{
     }
 
     saveForecast = async (coordinates,forecasts) => {
+        this.setState({ showSnack:true })
+        setTimeout(() => this.setState({ showSnack:false }),2000)
         const curForecast = forecasts[0].hourly[0]
         const data = {
             email : this.props.loggedUser,
@@ -164,12 +166,16 @@ class Forecast extends Component{
             }
         }
         const reply = await httpAddForecast(data)
-        console.log(reply)
     }
 
     render(){
         return (
             <div>
+                { this.state.showSnack ?
+                    <SavedSnackBar
+                        msg = "Forecast Saved"
+                    />
+                : null }
                 <div className="mt-5">
                     { this.state.showLoader ?
                         <LoadingSpinner />

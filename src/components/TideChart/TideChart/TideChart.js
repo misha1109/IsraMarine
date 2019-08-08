@@ -16,6 +16,7 @@ import { connect } from 'react-redux'
 
 import './TideChart.css'
 import {httpAddTides} from "../../../userAPI/requestHandler";
+import SavedSnackBar from "../../SaveSnackBar/SaveSnackBar";
 
 
 
@@ -85,7 +86,7 @@ class TideChart extends Component {
              loaded : false
          })
 
-         if( await reqWeather([0,0]) ==429 ){
+         if( await reqWeather([0,0]) == 429 ){
              this.setState({
                  apiErr : true
              })
@@ -108,6 +109,7 @@ class TideChart extends Component {
                                  return el.date
                              })
                              this.setState({
+                                 spinLoader : false,
                                  date : dates,
                                  loaded : tempLoaded,
                                  locationErrMsg : false
@@ -115,6 +117,7 @@ class TideChart extends Component {
                          }
                          else{
                              this.setState({
+                                 spinLoader : false,
                                  locationErrMsg : true,
                                  loaded : false,
                              })
@@ -122,9 +125,6 @@ class TideChart extends Component {
                      }
                  })
              }
-             this.setState({
-                 spinLoader : false
-             })
          }
     }
 
@@ -190,10 +190,12 @@ class TideChart extends Component {
          this.setState({
              day : newDay
          })
+        this.render()
     }
 
     saveTides = async (tides) => {
-        console.log(tides)
+        this.setState({ showSnack:true })
+        setTimeout(() => this.setState({ showSnack:false }),2000)
         const data = tides.map( el => {
             let coords
             let splitName = el.name.split(" ")
@@ -219,27 +221,35 @@ class TideChart extends Component {
     }
 
     render(){
+
         return (
             <div>
-                { this.state.apiErr ?
-                    <Redirect
-                        to='/apiKeyErr'
-                    >
-                    </Redirect>
-                : null}
-                { this.state.locationErrMsg?
-                    <NoDataMsg/>
-                    :null }
+                { this.state.showSnack ?
+                    <SavedSnackBar
+                        msg = "Tide Chart Saved"
+                    />
+                    : null }
                 <div className="container">
                     <div id="mapTides"
                          style={{ display : this.state.showMap }}
                          className="mapboxTide row border border-dark mb-5"></div>
                 </div>
+                { this.state.apiErr ?
+                    <Redirect
+                        to='/apiKeyErr'
+                    >
+                    </Redirect>
+                    : null}
+                { this.state.locationErrMsg?
+                    <NoDataMsg
+
+                    />
+                    :null }
                 { this.state.spinLoader ?
                     <div className="pt-5">
                         <LoadingSpinner />
                     </div>
-                    :null}
+                :null}
                 <div
                     ref={ this.navChartElRef }
                 >
@@ -249,20 +259,19 @@ class TideChart extends Component {
                                 <div  className="col-2" style={{fontSize : '20px' , color:'#01579B'}}>
                                     <FaRegSave onClick = { () => this.saveTides(this.state.loaded,this.state.coordClicked) }/>
                                 </div>
-                                : null}
+                            : null}
                             <TideNav
                                 date = { this.state.date[this.state.day] }
                                 click = { this.changeDay }
                                 day = { this.state.day }
                             />
                             {
-
                                 this.state.loaded.map((el,i) => {
                                     return (
                                         <Chart
                                             key = { el.name + i }
-
                                             name = { el.name }
+                                            day = { this.state.day}
                                             tides = { el.tides[this.state.day] }
                                         >
                                         </Chart>
@@ -270,7 +279,7 @@ class TideChart extends Component {
                             }
                         </div>
                     :null}
-                    </div>
+                </div>
                 </div>
         )
     }

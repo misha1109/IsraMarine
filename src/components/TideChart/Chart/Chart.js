@@ -3,7 +3,6 @@ import React , {Component} from 'react'
 import { CanvasJSChart } from '../../../assets/canvasjs.react'
 
 export default class Chart extends Component {
-
     render() {
         const labels = ["MIDNIGHT","MORNING","AFTERNOON","EVENING"]
         const titleText =  this.props.type == "saved tides" ? this.props.coordinates : this.props.name
@@ -21,6 +20,7 @@ export default class Chart extends Component {
         avg /= heightData.length
 
         const options = {
+            day : this.props.day,
             animationEnabled: true,
             title: {
                 text: titleText

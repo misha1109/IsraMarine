@@ -21,6 +21,10 @@ class CanvasJSChart extends React.Component {
 	}	
     shouldComponentUpdate(nextProps, nextState){
 		//Check if Chart-options has changed and determine if component has to be updated
+		if(nextProps.options.day != this.options.day){
+			this.chart = new CanvasJS.Chart(this.chartContainerId, this.options);
+			return true
+		}
         return !(nextProps.options === this.options);
     }
 	componentDidUpdate() {
