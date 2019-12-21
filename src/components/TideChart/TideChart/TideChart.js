@@ -243,7 +243,7 @@ class TideChart extends Component {
                 { this.state.locationErrMsg?
                     <NoDataMsg
 
-                    />
+                    cre/>
                     :null }
                 { this.state.spinLoader ?
                     <div className="pt-5">
