@@ -22,9 +22,11 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features 
+```
+PWA based on React framework that allows the user to view marine forecasts by choosing the location on the map, view graphs of tides and currents. For registered user the option to save chosen coordinates and marine data. 
+```
+###View forecast data by choosing location on the map
+[!ViewForcast](https://user-images.githubusercontent.com/33226571/61858200-4d9ad700-aece-11e9-9d9c-18702fbb008b.gif) 
 
 
