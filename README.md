@@ -26,7 +26,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 ```
 PWA based on React framework that allows the user to view marine forecasts by choosing the location on the map, view graphs of tides and currents. For registered user the option to save chosen coordinates and marine data. 
 ```
-###View forecast data by choosing location on the map
+### View forecast data by choosing location on the map
 [!ViewForcast](https://user-images.githubusercontent.com/33226571/61858200-4d9ad700-aece-11e9-9d9c-18702fbb008b.gif) 
 
 
