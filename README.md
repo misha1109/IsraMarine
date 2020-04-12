@@ -31,4 +31,8 @@ For registered user the option to save chosen coordinates and marine data.
 ### View forecast data by choosing location on the map
 ![ViewForcast](https://user-images.githubusercontent.com/33226571/61858200-4d9ad700-aece-11e9-9d9c-18702fbb008b.gif) 
 
+### View tide graphs
+![TideGraphs](https://user-images.githubusercontent.com/33226571/61858796-7a032300-aecf-11e9-8575-f423da63171b.gif) 
 
+### View tide graphs
+![SignUp](https://user-images.githubusercontent.com/33226571/61858971-db2af680-aecf-11e9-88ff-247ea6b354ed.gif) 
